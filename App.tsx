@@ -11,31 +11,14 @@ import {
   TouchableOpacity,
   Linking,
 } from 'react-native';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {BottomSheetContainer} from './src/components/BottomSheet';
+import {BottomSheetContainer} from './src/components/BottomSheet/BottomSheet';
+import {BottomSheetSample} from './src/components/BottomSheet/BottomSheetSample';
 import {FULL_SCREEN_HEIGHT} from './src/lib/size';
 const App = () => {
   const sampleModal = useRef<BottomSheetModal>(null);
   const handleSampleModalPress = () => sampleModal.current?.present();
-
-  const BottomSheetLoadingType = React.forwardRef((props: any, ref: any) => {
-    const snapPoints = useMemo(() => ['90%', '90%'], []);
-    const closeModal = () => ref.current.close();
-
-    const handlePress = (v: string) => {
-      closeModal();
-    };
-
-    return (
-      <BottomSheetContainer ref={ref} snapPoints={snapPoints}>
-        <Text>Happy coding!</Text>
-        <Text>Hello</Text>
-
-        {/* <BottomSheetScrollView></BottomSheetScrollView> */}
-      </BottomSheetContainer>
-    );
-  });
 
   return (
     <GestureHandlerRootView style={{flex: 1}}>
@@ -43,7 +26,7 @@ const App = () => {
         <SafeAreaView style={{backgroundColor: '#fff'}}>
           {/* // status bar style */}
           <View style={{display: 'flex', height: FULL_SCREEN_HEIGHT}}>
-            <BottomSheetLoadingType ref={sampleModal} />
+            <BottomSheetSample ref={sampleModal} />
 
             {/* start point */}
             <View

@@ -53,8 +53,9 @@ export const BottomSheetContainer = React.forwardRef((props: any, ref: any) => {
       ref={ref}
       index={0}
       snapPoints={snapPoints}
-      backdropComponent={renderBackdrop}>
-      <View style={{alignItems: 'center'}}>{props.children}</View>
+      backdropComponent={renderBackdrop}
+      style={{alignItems: 'center'}}>
+      {props.children}
     </BottomSheetModal>
   );
 });
