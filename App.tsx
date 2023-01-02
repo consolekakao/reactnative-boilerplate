@@ -10,16 +10,23 @@ import {
   View,
   TouchableOpacity,
   Linking,
+  Alert,
 } from 'react-native';
 import {GestureHandlerRootView, ScrollView} from 'react-native-gesture-handler';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {BottomSheetContainer} from './src/components/BottomSheet/BottomSheet';
 import {BottomSheetSample} from './src/components/BottomSheet/BottomSheetSample';
 import {FULL_SCREEN_HEIGHT} from './src/lib/size';
+import axiosInstance from './src/services/axios';
+import {SampleInstance} from './src/services/sample';
 const App = () => {
   const sampleModal = useRef<BottomSheetModal>(null);
   const handleSampleModalPress = () => sampleModal.current?.present();
 
+  const handleAxiosPress = async () => {
+    const service = await SampleInstance().getIpAddress();
+    Alert.alert('My ip is ', service);
+  };
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <BottomSheetModalProvider>
@@ -64,6 +71,15 @@ const App = () => {
                 <Text
                   style={{fontSize: RFValue(20), color: 'rgb(105, 185, 255)'}}>
                   Show Modal
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={{marginTop: 20}}
+                onPress={handleAxiosPress}>
+                <Text
+                  style={{fontSize: RFValue(20), color: 'rgb(105, 185, 255)'}}>
+                  Axios Test
                 </Text>
               </TouchableOpacity>
             </View>
