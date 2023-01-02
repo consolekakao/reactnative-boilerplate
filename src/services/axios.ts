@@ -1,5 +1,5 @@
 import axios, {AxiosInstance} from 'axios';
-import config from '../../config.json';
+import {BASE_URL} from '@env';
 
 let instance: AxiosInstance;
 
@@ -10,9 +10,8 @@ const responseErrorHandler = (error: any) => {
 
 export default function axiosInstance() {
   if (instance === undefined) {
-    const baseURL = config.baseurl;
     const axiosConfig = {
-      baseURL,
+      BASE_URL,
       timeout: 3000,
     };
     instance = axios.create(axiosConfig);

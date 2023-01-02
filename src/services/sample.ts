@@ -1,7 +1,7 @@
 import {AxiosInstance} from 'axios';
 import axiosInstance from './axios';
 
-const url = 'https://api.ip.pe.kr/json/';
+const sampleUrl = 'https://api.ip.pe.kr/json/';
 
 class SampleService {
   private instance: AxiosInstance;
@@ -11,7 +11,7 @@ class SampleService {
   }
 
   async getIpAddress() {
-    let response = await this.instance.get(url, {});
+    let response = await this.instance.get(sampleUrl, {});
 
     return response.data.ip;
   }
@@ -24,6 +24,5 @@ export const SampleInstance = (): SampleService => {
   if (sampleServiceInstance === undefined) {
     sampleServiceInstance = new SampleService();
   }
-
   return sampleServiceInstance;
 };

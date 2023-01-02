@@ -22,6 +22,7 @@ styled-components: ^5.3.6, for style
 @react-navigation/native-stack: ^6.9.7, for Screen
 react-native-reanimated: ^2.13.0, for bottomsheet
 react-native-responsive-fontsize: ^0.5.1 for responsive fontsize
+axios: ^1.2.1 http module
 ```
 
 > For more information, please check the package.josn file.
@@ -32,6 +33,7 @@ react-native-responsive-fontsize: ^0.5.1 for responsive fontsize
 > - Bottom Sheet Added.
 > - Styled component has been set.
 > - The response-font-size has been added to accommodate the larger screen.
+> - Axios has been applied for HTTP communication.
 
 ## 한국어
 
@@ -63,3 +65,4 @@ react-native-responsive-fontsize: ^0.5.1 for 반응형 폰트사이즈
 > - 바텀시트가 추가되었습니다.
 > - Styled component가 세팅되었습니다.
 > - 화면 크게보기를 대응하기위한 responsive-font-size가 추가되었습니다.
+> - HTTP 통신을 위해 axios가 적용되었습니다.
